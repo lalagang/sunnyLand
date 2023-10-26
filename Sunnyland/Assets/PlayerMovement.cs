@@ -55,4 +55,23 @@ public class PlayerMovement : MonoBehaviour
         jump = false;
 		
 	}
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
+            if (this.transform.position.y > enemy.transform.position.y)
+            {
+                // 敵を踏んだ時
+                enemy.DestroyEnemy();
+            }
+            else
+            {
+                // 正面でぶつかる時
+                // Destroy(this.gameObject);
+                animator.SetTrigger("IsHurt");
+            }
+        }
+    }
 }

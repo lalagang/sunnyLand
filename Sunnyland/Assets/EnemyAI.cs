@@ -84,4 +84,9 @@ public class EnemyAI : MonoBehaviour
             enemyGFX.localScale = new Vector3(1f, 1f, 1f);
         }
     }
+
+    public void DestroyEnemy()
+    {
+        Destroy(this.gameObject);
+    }
 }
