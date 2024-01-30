@@ -73,5 +73,11 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetTrigger("IsHurt");
             }
         }
+        else if (other.gameObject.CompareTag("Gem"))
+        {
+            // ジュエリーにぶつかるとき
+            Gem gem = other.gameObject.GetComponent<Gem>();
+            gem.DestroyGem();
+        }
     }
 }
